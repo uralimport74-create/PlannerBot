@@ -1,0 +1,8 @@
+pandas
+gspread
+google-api-python-client
+oauth2client
+pyTelegramBotAPI
+pytz
+openpyxl
+schedule
