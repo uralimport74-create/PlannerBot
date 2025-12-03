@@ -6,7 +6,7 @@ from datetime import datetime
 import pytz
 
 # Импортируем твоих ботов
-# Важно: убедись, что в production_bot и machine_planner убраны sys.exit() (см. Шаг 2)
+# Важно: убедись, что в production_bot и machine_planner убраны sys.exit()
 import production_bot
 import machine_planner
 
@@ -40,10 +40,10 @@ if __name__ == "__main__":
     # 1. Восстанавливаем файл с ключами
     create_creds_file()
 
-    # 2. Настраиваем расписание (Время UTC! Екб 18:00 = UTC 13:00)
-    # Если хочешь запускать ровно в 18:00 по Екб, ставь "18:00"
-   schedule.every().day.at("23:35").do(job_production)
-schedule.every().day.at("23:37").do(job_machine)
+    # 2. Настраиваем расписание (ТЕСТОВОЕ ВРЕМЯ)
+    # Исправлены отступы: теперь тут ровно 4 пробела
+    schedule.every().day.at("23:40").do(job_production)
+    schedule.every().day.at("23:43").do(job_machine)
 
     print("📅 Расписание установлено. Жду времени Ч...")
     print(f"Текущее время сервера (UTC): {datetime.now(pytz.utc)}")
@@ -51,7 +51,4 @@ schedule.every().day.at("23:37").do(job_machine)
     # 3. Бесконечный цикл проверки
     while True:
         schedule.run_pending()
-
         time.sleep(30) # Проверка каждые 30 секунд
-
-
