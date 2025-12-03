@@ -42,8 +42,8 @@ if __name__ == "__main__":
 
     # 2. Настраиваем расписание (ТЕСТОВОЕ ВРЕМЯ)
     # Исправлены отступы: теперь тут ровно 4 пробела
-    schedule.every().day.at("23:40").do(job_production)
-    schedule.every().day.at("23:43").do(job_machine)
+    schedule.every().day.at("17:50").do(job_production)
+    schedule.every().day.at("17:52").do(job_machine)
 
     print("📅 Расписание установлено. Жду времени Ч...")
     print(f"Текущее время сервера (UTC): {datetime.now(pytz.utc)}")
@@ -52,3 +52,4 @@ if __name__ == "__main__":
     while True:
         schedule.run_pending()
         time.sleep(30) # Проверка каждые 30 секунд
+
